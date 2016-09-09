@@ -1,5 +1,6 @@
 'use strict;'
 //Include crypto to generate the movie id
+//Fake data as array
 var crypto = require('crypto');
 
 module.exports = function() {
@@ -21,7 +22,7 @@ module.exports = function() {
         return this.movieList.find(element => {
             return element.id === id;
           });
-      }else {
+      } else {
         return this.movieList;
       }
     },
@@ -31,14 +32,15 @@ module.exports = function() {
     remove(id) {
       var found = 0;
       this.movieList = this.movieList.filter(element => {
-          if(element.id === id) {
-            found = 1;
-          }else {
-            return element.id !== id;
-          }
-        });
+        if(element.id === id) {
+          found = 1;
+        } else {
+          return element.id !== id;
+        }
+      });
       return found;
     },
+
     /*
      * Update a movie with the given id
      */
@@ -50,7 +52,7 @@ module.exports = function() {
         this.movieList[movieIndex].title = movie.title;
         this.movieList[movieIndex].year = movie.year;
         return 1;
-      }else {
+      } else {
         return 0;
       }
     }
