@@ -1,1 +1,1 @@
-Place configuration files in this directory.
+### Config file to hanle data access
